@@ -1,13 +1,7 @@
-import { db } from "@/db";
-import { sql } from "drizzle-orm";
-
 export const dynamic = "force-dynamic";
 
+// Demo mode is intentionally database-free. All sample records are generated
+// from src/data/seedData.ts and edits are stored in the browser only.
 export async function GET() {
-  try {
-    await db.execute(sql`select 1`);
-    return Response.json({ ok: true });
-  } catch {
-    return Response.json({ ok: false }, { status: 500 });
-  }
+  return Response.json({ ok: true, mode: "demo", storage: "browser-local" });
 }
