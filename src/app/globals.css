@@ -1,10 +1,12 @@
 @import "tailwindcss";
 
-@theme {
-  --font-serif: var(--font-serif), Georgia, Cambria, "Times New Roman", serif;
-  --font-sans: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+@theme inline {
+  --font-serif: var(--font-cormorant), Georgia, Cambria, "Times New Roman", serif;
+  --font-sans: var(--font-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
 
+@theme {
   --color-burgundy: #541326;
   --color-wine: #741F38;
   --color-gold: #C8A96B;
@@ -16,11 +18,16 @@
   body {
     background-color: #FAF7F0;
     color: #252323;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
   }
 }
 
-/* Subtle luxury scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -39,7 +46,6 @@
   background: #C8A96B;
 }
 
-/* Subtle micro-animations */
 @keyframes fadeSlideUp {
   from {
     opacity: 0;
@@ -55,7 +61,6 @@
   animation: fadeSlideUp 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Tactile silk weave watermark pattern for subtle luxury accents */
 .silk-pattern {
   background-image: radial-gradient(rgba(200, 169, 107, 0.14) 1px, transparent 1px);
   background-size: 18px 18px;
